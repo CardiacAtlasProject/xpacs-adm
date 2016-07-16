@@ -6,6 +6,7 @@
 * Spring framework
 * JOOQ
 * MySQL database connection
+* Embedded Tomcat server, currently Apache Tomcat/8.0.36
 
 # Quick start
 

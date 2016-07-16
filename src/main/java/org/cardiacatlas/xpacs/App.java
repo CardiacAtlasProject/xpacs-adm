@@ -16,7 +16,7 @@ public class App
 	// A test hello method, accessible at [context-root]/hello URL
 	@RequestMapping("/hello")
 	String home() {
-		return "Hello, XPACS";
+		return "Hello, XPACS 4";
 	}
 	
 	// The main method runs Spring

@@ -6,6 +6,15 @@
 * Added `fork` option true in `pom.xml` inside `spring-boot-maven-plugin`. In this way, you can run the server outside the Eclipse enviroment using:
 
    ```bash
-   $ mvn spring-boot:run
+   $ mvn spring-boot:start
    ```
    and the server is automatically refreshed when you modify the codes. Cool, eh?
+
+   Stop it using:
+   ```bash
+   $ mvn spring-boot:stop
+   ```
+
+* Found a good cheat sheet for application.properties: [http://makerj.tistory.com/189](http://makerj.tistory.com/189)
+* Created application.properites.
+* Server's context-path = `/xpacs-web` with port number = 8585.
