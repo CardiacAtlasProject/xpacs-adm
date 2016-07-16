@@ -27,6 +27,8 @@ $ mvn package
 $ java -jar target/[OUTPUT_JAR_FILE].jar
 ```
 
+Open [http://localhost:8080](http://localhost:8080).
+
 # Import to Eclipse
 
 In the root project folder:
