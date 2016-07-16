@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class App 
 {
 	// A test hello method, accessible at [context-root]/hello URL
-	@RequestMapping("/")
+	@RequestMapping("/hello")
 	String home() {
 		return "Hello, XPACS";
 	}
