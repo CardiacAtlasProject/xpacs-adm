@@ -1,13 +1,27 @@
 package org.cardiacatlas.xpacs;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 /**
- * Hello world!
- *
+ * Main application that starts the Spring framework
+ * This would be a REST controller with auto configuration
  */
+@RestController
+@EnableAutoConfiguration
 public class App 
 {
-    public static void main( String[] args )
+	// A test hello method, accessible at [context-root]/hello URL
+	@RequestMapping("/")
+	String home() {
+		return "Hello, XPACS";
+	}
+	
+	// The main method runs Spring
+    public static void main( String[] args ) throws Exception
     {
-        System.out.println( "Hello World!" );
+        SpringApplication.run(App.class, args);
     }
 }
