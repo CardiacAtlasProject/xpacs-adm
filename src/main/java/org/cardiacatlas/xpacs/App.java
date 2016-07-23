@@ -1,7 +1,9 @@
 package org.cardiacatlas.xpacs;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,13 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
  * This would be a REST controller with auto configuration
  */
 @RestController
-@EnableAutoConfiguration
+@SpringBootApplication
 public class App 
 {
+	static final Logger logger = LoggerFactory.getLogger(App.class);
+	
 	// A test hello method, accessible at [context-root]/hello URL
 	@RequestMapping("/hello")
 	String home() {
-		return "Hello, XPACS 4";
+		logger.info("INFO: hello is called");
+		return "Hello, XPACS";
 	}
 	
 	// The main method runs Spring

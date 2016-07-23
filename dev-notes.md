@@ -3,7 +3,7 @@
 * Used `spring-boot-starter-web` dependency in `pom.xml`
 * Created `/hello` mapping for testing inside `App` class
 * Added `spring-boot-devtools` dependency in `pom.xml`, which allows the server started inside Eclipse to automatically refreshed whenever you changed the program
-* Added `fork` option true in `pom.xml` inside `spring-boot-maven-plugin`. In this way, you can run the server outside the Eclipse enviroment using:
+* Added `fork` option true in `pom.xml` inside `spring-boot-maven-plugin`. In this way, you can run the server outside the Eclipse environment using:
 
    ```bash
    $ mvn spring-boot:start
@@ -16,5 +16,22 @@
    ```
 
 * Found a good cheat sheet for application.properties: [http://makerj.tistory.com/189](http://makerj.tistory.com/189)
+* But the common one is here: [http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
 * Created application.properites.
 * Server's context-path = `/xpacs-web` with port number = 8585.
+* Added log file in `application.properties`.
+   How to log:
+
+   ```java
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
+
+   public class Foo {
+     static final Logger logger = LoggerFactory.getLogger(Foo.class);
+
+     public void doIt() {
+       logger.debug("Did it again!");
+       logger.info("just an info");
+     }
+   }
+   ```

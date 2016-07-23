@@ -17,7 +17,9 @@ $ mvn dependency:tree
 $ mvn spring-boot:run
 ```
 
-Open [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:8585](http://localhost:8585).
+
+If you want to create start/stop service, instead of run, you can call `mvn spring-boot:start` and `mvn spring:boot-stop`.
 
 # Packaging to JAR
 
@@ -28,7 +30,7 @@ $ mvn package
 $ java -jar target/[OUTPUT_JAR_FILE].jar
 ```
 
-Open [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:8585](http://localhost:8585).
 
 # Import to Eclipse
 
@@ -41,4 +43,4 @@ $ mvn eclipse:eclipse
 * Open Eclipse -> Import Maven project.
 * Run application
 
-Open [http://localhost:8080](http://localhost:8080).
+Open [http://localhost:8585](http://localhost:8585).
