@@ -18,7 +18,7 @@
 * Found a good cheat sheet for application.properties: [http://makerj.tistory.com/189](http://makerj.tistory.com/189)
 * But the common one is here: [http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
 * Created application.properites.
-* Server's context-path = `/xpacs-web` with port number = 8585.
+* Server's context-path = `/xpacs-adm` with port number = 8585.
 * Added log file in `application.properties`.
    How to log:
 
@@ -35,3 +35,8 @@
      }
    }
    ```
+
+2016-08-03-AS:
+* Create `dev` branch: this is for development.
+* Adding [Spring Security](http://projects.spring.io/spring-security/):
+  * Added dependency in the pom.xml
