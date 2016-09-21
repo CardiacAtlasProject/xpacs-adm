@@ -40,3 +40,20 @@
 * Create `dev` branch: this is for development.
 * Adding [Spring Security](http://projects.spring.io/spring-security/):
   * Added dependency in the pom.xml
+
+2016-09-22-AS:
+* Refreshed from the start (not good layout)
+* Two profiles provided in the maven pom.xml:
+  * production
+  * development (default)
+* To run a specific profile, call:
+
+   ```bash
+   $ mvn spring-boot:run -P production
+   ```
+* but you must specify the active profile in the application.properties file.
+* There are specific profile properties:
+  * ```h2```, which uses memory database, used by the development profile.
+  * ```mysql-vm```, which uses MySQL server on Local VM (my laptop); use production profile.
+  * ```mysql-captest```, which uses MySQL server on capsqltst01 (local UoA network); use production profile.
+  * ```mysql-capprod```, which uses MySQL server on capsqlprd01 (CAP's production server); use production profile.
