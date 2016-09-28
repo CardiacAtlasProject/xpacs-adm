@@ -44,16 +44,23 @@
 2016-09-22-AS:
 * Refreshed from the start (not good layout)
 * Two profiles provided in the maven pom.xml:
-  * production
-  * development (default)
+  * mysql (default)
+  * h2 (can be used for testing later)
 * To run a specific profile, call:
 
    ```bash
-   $ mvn spring-boot:run -P production
+   $ mvn spring-boot:run -P mysql
    ```
 * but you must specify the active profile in the application.properties file.
 * There are specific profile properties:
-  * ```h2```, which uses memory database, used by the development profile.
-  * ```mysql-vm```, which uses MySQL server on Local VM (my laptop); use production profile.
-  * ```mysql-captest```, which uses MySQL server on capsqltst01 (local UoA network); use production profile.
-  * ```mysql-capprod```, which uses MySQL server on capsqlprd01 (CAP's production server); use production profile.
+  * ```devel```, which uses MySQL server on Local VM (my laptop). This will test the server when schema is not ready.
+  * ```captest```, which uses MySQL server on capsqltst01 (local UoA network). Schema should be ready.
+  * ```capprod```, which uses MySQL server on capsqlprd01 (CAP's production server).
+
+* Some useful notes from Spring when it runs the application:
+  Application events are sent in the following order, as your application runs:
+    1. An ```ApplicationStartedEvent``` is sent at the start of a run, but before any processing except the registration of listeners and initializers.
+    2. An ```ApplicationEnvironmentPreparedEvent``` is sent when the Environment to be used in the context is known, but before the context is created.
+    3. An ```ApplicationPreparedEvent``` is sent just before the refresh is started, but after bean definitions have been loaded.
+    4. An ```ApplicationReadyEvent``` is sent after the refresh and any related callbacks have been processed to indicate the application is ready to service requests.
+    5. An ```ApplicationFailedEvent``` is sent if there is an exception on startup.

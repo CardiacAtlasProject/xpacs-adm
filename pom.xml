@@ -50,7 +50,10 @@
 	
 	<profiles>
 		<profile>
-			<id>production</id>
+			<id>mysql</id>
+			 <activation>
+            	<activeByDefault>true</activeByDefault>
+        	</activation>
 			<dependencies>
 				<dependency>
 					<groupId>mysql</groupId>
@@ -60,10 +63,7 @@
 			</dependencies>
 		</profile>
 		<profile>
-			<id>development</id>
-			 <activation>
-            	<activeByDefault>true</activeByDefault>
-        	</activation>
+			<id>h2</id>
 			<dependencies>
 				<dependency>
     				<groupId>com.h2database</groupId>
