@@ -53,8 +53,8 @@
    ```
 * but you must specify the active profile in the application.properties file.
 * There are specific profile properties:
-  * ```devel```, which uses MySQL server on Local VM (my laptop). This will test the server when schema is not ready.
-  * ```captest```, which uses MySQL server on capsqltst01 (local UoA network). Schema should be ready.
+  * ```devel```, which uses MySQL server on Local VM (my laptop).
+  * ```captest```, which uses MySQL server on capsqltst01 (local UoA network).
   * ```capprod```, which uses MySQL server on capsqlprd01 (CAP's production server).
 
 * Some useful notes from Spring when it runs the application:
@@ -64,3 +64,20 @@
     3. An ```ApplicationPreparedEvent``` is sent just before the refresh is started, but after bean definitions have been loaded.
     4. An ```ApplicationReadyEvent``` is sent after the refresh and any related callbacks have been processed to indicate the application is ready to service requests.
     5. An ```ApplicationFailedEvent``` is sent if there is an exception on startup.
+
+2016-09-29-AS:
+* In the application.properties, the `spring.jpa.hibernate.ddl-auto` property can be:
+   * `none`  - don't do anything during startup
+   * `create` - create necessary tables that are defined as `@Entity` classes. Drop existing ones.
+   * `create-drop` - do the same as `create` but destroy when exiting.
+   * `auto` - Spring will do `create-drop` if the platform database is memory, otherwise `none`.
+   * `validate` - to check with the existing schema.
+   * Do not use any of these values, but use `none`. We will supply our own schema and data script.
+* Create `schema.sql` or `schema-{platform}.sql`, where platform is `mysql`, for initialize a database schema.
+* Create `data.sql` or `schema-{platform}.sql` for populating initial data.
+* Where to create these files?
+    * Default is in the class root path, which is `src/main/resources`
+    * Or we can create in other other folder and set the locations in the `spring.datasource.schema` and `spring.datasource.data` properties.
+    * In this xpacs-adm application, I set `spring.datasource.schema=classpath:/sql/xpacs-create-schema.sql`, which the file `xpacs-create-schema.sql` is stored in ROOT:/src/main/resources/sql/ folder.
+* If you want to prohibit database initialization, which is a good practice for production server, then set `spring.datasource.initialize=false`.
+* Now the spring application won't run if the initialization fails. To disable that, set `spring.datasource.continue-on-error=true`.
